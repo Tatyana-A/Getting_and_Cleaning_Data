@@ -23,7 +23,8 @@ allsubjects<-rbind(subjecttrain,subjecttest)
 # Step 2. Extract only the measurements on the mean and standard
 #         deviation for each measurement.
 
-selected_columns<-sapply(features[,2], function(x) (strsplit(paste(as.character(x),"-0",sep=""),"-")[[1]] %in% c("mean()","std()"))[2])
+selected_columns<-sapply(features[,2], function(x) 
+        (strsplit(paste(as.character(x),"-0",sep=""),"-")[[1]] %in% c("mean()","std()"))[2])
 ds<-alldata[,selected_columns]
 
 # Step 3. Use descriptive activity names to name the activities in the data set
